@@ -1,0 +1,24 @@
+<div>
+	<ul class="list-group list-group-containter">
+		<li class="list-group-item contact-section">
+			<span>Contacts</span>
+			<a href="#/add"><span class="icon-plus glyphicon glyphicon-plus"></span></a>
+		</li>
+		<li class="list-group-item search-section">
+			<input class="form-control" placeholder="Seach" type="text" ng-model="searchText">
+		</li>
+		<li class="list-group-item contact-group-section">
+			<ul class="list-group" ng-repeat="(letter, contactList) in contactsView">
+				<li class="list-group-item group-letter">{{letter}}</li>
+				<a class="list-group-item contact-item" ng-repeat="contact in contactList | orderBy: 'firstName' | filter: {firstName: searchText}" 
+					ng-click="showContactInfo(contact._id)">
+					<li>
+						<span><b>{{contact.firstName}}</b> {{contact.lastName}}</span>
+						<span class="action-icon glyphicon glyphicon-remove" ng-click="removeContact(contact, $event)"></span>
+						<span class="action-icon glyphicon glyphicon-edit" ng-click="editContact(contact._id, $event)"></span> 			
+					</li>
+				</a>
+			</ul>
+		</li>
+	</ul> 
+</div>

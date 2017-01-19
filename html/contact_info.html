@@ -1,0 +1,24 @@
+<div class="list-group-item">
+	<h2 class="text-center title-name">{{currentContact.firstName}} {{currentContact.lastName}}</h2>
+	<p>Email: <a ng-href="mailto:{{currentContact.email}}">{{currentContact.email}}</a></p>
+	<p>Phone: {{currentContact.phone}}</p>
+	<p>URL: <a href="{{currentContact.url}}">{{currentContact.url}}</a></p>
+	<p>Notes:</p>
+	<p class="well well-lg">{{currentContact.notes}}</p>
+
+	<a href="#/contacts">
+		<button class="btn btn-default">
+			<span class="glyphicon glyphicon-arrow-left"></span><span>&nbsp;Back</span>
+		</button>
+	</a>
+	
+	<a ng-href="#/edit/{{currentContact._id}}">
+		<button class="btn btn-default">
+			<span class="glyphicon glyphicon-pencil"></span><span>&nbsp;Edit</span>
+		</button>
+	</a>
+
+	<a><button class="btn btn-default" ng-click="removeContact(currentContact, $event)">
+		<span class="glyphicon glyphicon-remove"></span><span>&nbsp;Remove</span>
+	</button></a>
+</div>
